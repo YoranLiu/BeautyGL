@@ -14,13 +14,11 @@ import java.util.concurrent.Executors
 
 class CameraHelper(private val context: Context) {
     private var lensFacing = CameraSelector.LENS_FACING_FRONT
-    private lateinit var cameraExecutor: ExecutorService
     private lateinit var preview: Preview
     private lateinit var cameraSelector: CameraSelector
+    //private val cameraExecutor = Executors.newSingleThreadExecutor()
 
     fun openCamera() {
-        cameraExecutor = Executors.newSingleThreadExecutor()
-
         val cameraProviderFuture = ProcessCameraProvider.getInstance(context)
 
         cameraProviderFuture.addListener(Runnable {
